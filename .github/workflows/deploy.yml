@@ -23,13 +23,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: piyaphan098/k8s-devops-demo:latest
-    - name: 🚀 Deploy to Kubernetes
-        uses: azure/setup-kubectl@v3
-
-      - name: ♻️ Rollout Restart
-        run: |
-          echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
-          kubectl --kubeconfig=kubeconfig.yaml rollout restart deployment/k8s-devops-demo
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          tags: |
+            piyaphan098/k8s-devops-demo:latest
+            piyaphan098/k8s-devops-demo:${{ github.sha }}
