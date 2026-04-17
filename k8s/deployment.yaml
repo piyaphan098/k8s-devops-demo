@@ -17,5 +17,6 @@ spec:
       containers:
         - name: k8s-devops-demo
           image: piyaphan098/k8s-devops-demo:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
